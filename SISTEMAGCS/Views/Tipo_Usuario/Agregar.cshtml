@@ -1,0 +1,28 @@
+﻿@model SISTEMAGCS.Models.Tipo_Usuario
+@{
+    ViewBag.Title = "Agregar";
+}
+
+<h2>Agregar</h2>
+
+@using (Html.BeginForm("Index", "Tipo_Usuario", FormMethod.Post))
+{
+
+<div class="card"></div>
+<div class="card" style="align-content:center">
+    <div class="card-header">Informacion Tipo Usuario</div>
+    <div class="card-body">
+        <div class="form-group">
+            @Html.LabelFor(x=>x.Nombre)
+            @Html.TextBoxFor(x => x.Nombre, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Nombre, null, new { @class = "label label-danger" })
+        </div>
+
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a href="~/Tipo_Usuario" class="btn btn-danger">Cancelar</a>
+    </div>
+</div>
+
+}

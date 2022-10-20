@@ -1,0 +1,57 @@
+﻿@model List<SISTEMAGCS.Models.Usuario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<br />
+<br />
+<div>
+    <h3>Usuario</h3>
+</div>
+
+
+
+<h2 class="page-linl">
+    <a href="~/Usuario/Agregar" class="btn btn-info text-right">Nuevo Registro</a>
+</h2>
+<br />
+<br />
+@using (Html.BeginForm("Index", "Usuario", FormMethod.Post))
+{
+
+}
+
+
+    <table class="table" align="center">
+        <caption>Lista de Usuarios</caption>
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Tipo Usuario</th>
+                <th scope="col">Nombres y apellidos</th>
+                <th scope="col">Email</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var m in Model)
+            {
+                <tr>
+                    <th scope="row">@(m.Id_usuario)</th>
+                    <td>@(m.Tipo_Usuario.Nombre)</td>
+                    <td>@(m.Nombre), @(m.Apellido)</td>
+                    <td>@(m.Correo)</td>
+                    <td>@(m.Estado)</td>
+                    <td>
+                        <a href="~/Usuario/Agregar/@m.Id_usuario" class="btn btn-primary">Editar</a>
+                        <a href="~/Usuario/Agregar/@m.Id_usuario" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+            }
+         </tbody>
+            
+    </table>
+

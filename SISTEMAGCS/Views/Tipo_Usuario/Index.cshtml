@@ -1,0 +1,44 @@
+﻿@model List<SISTEMAGCS.Models.Tipo_Usuario>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tipo de Usuario</h2>
+<h2 class="pagegeader">
+    <a href="~/Tipo_Usuario/Agregar" class="btn btn-info text-right">Nuevo Registro</a>
+
+</h2>
+<br />
+@using (Html.BeginForm("Index", "Tipo_Usuario", FormMethod.Post))
+{
+
+}
+
+
+
+<table class="table" align="center">
+    <caption>Lista de tipos de usuario</caption>
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <th scope="row">@(c.Id_tipousuario)</th>
+                <td>@(c.Nombre)</td>
+               
+                <td>
+                    <a href="~/Tipo_Usuario/Agregar/@c.Id_tipousuario" class="btn btn-success">Editar</a>
+                    <a a onclick="return confirm('Esta Seguro que desea eliminar el registro?')" href="~/Tipo_Usuario/index/@c.Id_tipousuario" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
